@@ -120,8 +120,9 @@ Tab:AddButton({
     Name = "Stamina Mobile",
     Callback = function()
               loadstring(game:HttpGet("https://pastefy.app/T9PjjPY5/raw"))()
-              wait(0.1)
+              wait()
               OrionLib:Destroy()
+              wait()
               loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/gf/refs/heads/main/hchfcgdcyfgf"))()
       end    
 })
@@ -131,8 +132,9 @@ Tab:AddButton({
     Name = "Stamina for Xeno",
     Callback = function()
               loadstring(game:HttpGet("https://pastefy.app/zp6LTE2D/raw"))()
-              wait(0.1)
+              wait()
               OrionLib:Destroy()
+              wait()
               loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/gf/refs/heads/main/hchfcgdcyfgf"))()
       end    
 })
