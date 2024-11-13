@@ -1,0 +1,161 @@
+if game:GetService("ReplicatedStorage").GameData.Floor.Value == "Mines" then
+
+-- I Thank you noname for frostbite
+
+
+-- Original By Noonie and ping
+
+
+local blackListeds = {"Yarik9847"}
+
+if table.find(blackListeds, game.Players.LocalPlayer.Name) then
+
+game.Players.LocalPlayer:Kick("You been kicked from Hardcore: You are shared script to others people. ")
+
+end
+
+
+-------- goober
+coroutine.wrap(function()
+game:GetService("ReplicatedStorage").GameData.LatestRoom.Changed:Connect(function(v)
+   L = game:GetService("Workspace").CurrentRooms[v].PathfindNodes:Clone()
+L.Parent = game:GetService("Workspace").CurrentRooms[v]
+L.Name = 'Nodes'
+
+end)
+end)()
+
+print("Loade") 
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.Health.Music.Blue.SoundId = "rbxassetid://10472612727" 
+game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.Health.Music.Blue.Pitch = 0.55 
+ 
+game.Lighting.FogColor = Color3.fromRGB(0, 0, 0) 
+game.Lighting.FogStart = 5 
+game.Lighting.FogEnd = 800 
+ 
+game.ReplicatedStorage.Sounds.BulbZap.SoundId = "rbxassetid://4398878054"  
+ 
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local function msg(message)
+    
+    local mainGame = require(LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
+    
+    
+    mainGame.caption(message, true)
+end
+
+if game.ReplicatedStorage.GameData.LatestRoom.Value > 1 then 
+	game.ReplicatedStorage.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Error"
+	firesignal(game.ReplicatedStorage.RemoteEvents.DeathHint.OnClientEvent, {"You need to execute the script at door 0!", "Remember this!"}, "Blue")
+	game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid"):TakeDamage(100)  
+	return
+end
+
+if workspace:FindFirstChild("hardcoreInit") then msg("Executed 2 times! Returning...") return end
+
+local EnabledBool = Instance.new("BoolValue",workspace)
+EnabledBool.Name = "hardcoreInit"
+
+local LightReplaceModel = game:GetObjects("rbxassetid://12543866876")[1] or nil
+
+--Change Light Model
+coroutine.wrap(function()
+    while true do   
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+for i,v in pairs(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value].Assets.Light_Fixtures:GetDescendants()) do
+	if v.Name == "LightStand" then
+		if game.ReplicatedStorage.GameData.LatestRoom.Value < 53 then
+			local torch = LightReplaceModel:Clone()
+			torch.Parent = workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value].Assets.Light_Fixtures
+			torch.LightFixture.Changed:Connect(function()
+				torch.LightFixture.Neon.atachm["Ok you cannot tell me this isnt good"].Enabled = torch.LightFixture.PointLight.Enabled
+					torch.LightFixture.Neon["Bright sh idfk"].ParticleEmitter.Enabled = torch.LightFixture.PointLight.Enabled
+					torch.LightFixture:WaitForChild('Dust').ParticleEmitter.Enabled = torch.LightFixture.PointLight.Enabled 
+			end)
+			torch:PivotTo(v:GetPivot())
+			v:Destroy()
+
+		else
+			v:Destroy()
+		end
+	  end
+   end
+  end
+end)()
+
+for i,v in pairs(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value].Assets.Light_Fixtures:GetDescendants()) do
+	if v.Name == "LightStand" then
+		if game.ReplicatedStorage.GameData.LatestRoom.Value < 53 then
+			local torch = LightReplaceModel:Clone()
+			torch.Parent = workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value].Assets.Light_Fixtures
+			torch.LightFixture.Changed:Connect(function()
+				torch.LightFixture.Neon.atachm["Ok you cannot tell me this isnt good"].Enabled = torch.LightFixture.PointLight.Enabled
+					torch.LightFixture.Neon["Bright sh idfk"].ParticleEmitter.Enabled = torch.LightFixture.PointLight.Enabled
+					torch.LightFixture:WaitForChild('Dust').ParticleEmitter.Enabled = torch.LightFixture.PointLight.Enabled 
+			end)
+			torch:PivotTo(v:GetPivot())
+			v:Destroy()
+
+		else
+			v:Destroy()
+		end
+	  end
+   end
+   
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Pr!me A-60! Hub v2", HidePremium = false, SaveConfig = true, ConfigFolder = "Script loading"})
+
+
+local Tab = Window:MakeTab({
+    Name = "Menu",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})   
+
+
+Tab:AddButton({
+    Name = "Stamina Mobile",
+    Callback = function()
+              loadstring(game:HttpGet("https://pastefy.app/T9PjjPY5/raw"))()
+              wait()
+              OrionLib:Destroy()
+              wait()
+              loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/gf/refs/heads/main/Hardcore%20Mode%20floor2"))()
+      end    
+})
+
+
+Tab:AddButton({
+    Name = "Stamina for Xeno",
+    Callback = function()
+              loadstring(game:HttpGet("https://pastefy.app/zp6LTE2D/raw"))()
+              wait()
+              OrionLib:Destroy()
+              wait()
+              loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/gf/refs/heads/main/Hardcore%20Mode%20floor2"))()
+      end    
+})
+
+game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+
+caa = 0
+tween = game:GetService("TweenService")
+local TestMultplayer = true
+if game:GetService("ReplicatedStorage"):FindFirstChild("Stamina") then
+    warn("You have Already Loaded")
+
+    return true
+end
+local Test = Instance.new("Part")
+Test.Name = "Stamina"
+Test.Parent = game:GetService("ReplicatedStorage")
+Test = 1
+
+game.Players.LocalPlayer:Kick("You Need Give Stamina")
+end
+
+game.Players.LocalPlayer:Kick("What? You Need Execute in The mine")
